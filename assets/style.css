@@ -1,0 +1,896 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+    --agri-bg: #FBFBFA;
+    --agri-card-bg: #FFFFFF;
+    --agri-forest-dark: #173628;
+    --agri-forest-hover: #214C39;
+    --agri-forest-light: #2D5F45;
+    --agri-emerald: #2E7D32;
+    --agri-sage: #E9F1EB;
+    --agri-text-dark: #1A241F;
+    --agri-text-muted: #5F6D64;
+    --agri-border: #E5EBE5;
+}
+
+/* Background & Global Typography */
+html, body, [class*="css"], .stApp {
+    background-color: var(--agri-bg) !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    color: var(--agri-text-dark) !important;
+}
+
+/* Completely remove default Streamlit branding & anchor links */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Hide Streamlit automatic anchor link icons */
+[data-testid="stHeaderActionElements"],
+.stMarkdown a.header-anchor,
+a.header-anchor,
+.anchor-link,
+a[href^="#"] span:has(svg) {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.main .block-container {
+    padding-top: 1rem;
+    padding-bottom: 3.5rem;
+    max-width: 1240px;
+}
+
+/* SVG Icon Helper */
+.agri-icon {
+    vertical-align: -0.15em;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* ─────────────────────────────────────────────
+   TOP NAVBAR (Editorial Clean Text Links, No Boxes)
+   ───────────────────────────────────────────── */
+.agri-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0 1.6rem 0;
+    border-bottom: 1px solid #E8ECE6;
+    margin-bottom: 2.2rem;
+}
+
+.agri-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none !important;
+}
+
+.agri-logo-icon {
+    width: 44px;
+    height: 44px;
+    background: #EAF3EC;
+    border: 1px solid #D3E6DA;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--agri-forest-dark);
+    flex-shrink: 0;
+}
+
+.agri-brand-text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.18;
+}
+
+.agri-brand-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--agri-forest-dark);
+    margin: 0;
+    padding: 0;
+}
+
+.agri-brand-subtitle {
+    font-size: 0.78rem;
+    color: var(--agri-text-muted);
+    letter-spacing: 0.03em;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nav Menu Text Links */
+.agri-nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+}
+
+.agri-nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--agri-text-muted);
+    text-decoration: none !important;
+    padding: 0.4rem 0.2rem 0.5rem 0.2rem;
+    border-bottom: 2.5px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.agri-nav-link:hover {
+    color: var(--agri-forest-dark) !important;
+    text-decoration: none !important;
+}
+
+.agri-nav-link.active {
+    color: var(--agri-forest-dark) !important;
+    font-weight: 700 !important;
+    border-bottom: 2.5px solid var(--agri-forest-dark) !important;
+    text-decoration: none !important;
+}
+
+/* CTA Nav Button */
+.agri-nav-cta {
+    background: var(--agri-forest-dark);
+    color: #FFFFFF !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 25px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(23, 54, 40, 0.18);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.agri-nav-cta:hover {
+    background: var(--agri-forest-hover) !important;
+    box-shadow: 0 6px 16px rgba(23, 54, 40, 0.25) !important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}
+
+/* ─────────────────────────────────────────────
+   HERO BANNER
+   ───────────────────────────────────────────── */
+.agri-hero {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 2.2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #EDF4EE;
+    border: 1px solid #D3E4D7;
+    padding: 0.35rem 0.95rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--agri-forest-dark);
+    margin-bottom: 1rem;
+}
+
+.hero-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.9rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--agri-text-dark);
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.hero-heading span.highlight {
+    color: var(--agri-forest-light);
+    font-style: italic;
+}
+
+.hero-description {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--agri-text-muted);
+    margin-bottom: 1.6rem;
+    max-width: 530px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-primary-pill {
+    background: var(--agri-forest-dark);
+    color: white !important;
+    padding: 0.72rem 1.6rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none !important;
+    box-shadow: 0 4px 14px rgba(23, 54, 40, 0.18);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.btn-primary-pill:hover {
+    background: var(--agri-forest-hover) !important;
+    color: white !important;
+}
+
+.btn-secondary-pill {
+    background: #FFFFFF;
+    color: var(--agri-forest-dark) !important;
+    padding: 0.72rem 1.6rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    border: 1px solid #D3DDD5;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Hero Showcase Graphic Card */
+.hero-graphic-card {
+    background: linear-gradient(145deg, #1A3F2F 0%, #0F261C 100%);
+    border-radius: 22px;
+    padding: 2rem;
+    color: white;
+    box-shadow: 0 16px 36px -8px rgba(23, 54, 40, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 290px;
+}
+
+.hero-floating-glass {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    padding: 1.1rem 1.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.glass-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.glass-stat-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.glass-stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #B5CCC0;
+    letter-spacing: 0.05em;
+}
+
+.glass-stat-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.glass-score-circle {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 3.5px solid #4ADE80;
+    background: rgba(74, 222, 128, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* ─────────────────────────────────────────────
+   FEATURE TILES SECTION (Smart Solutions for Modern Farming)
+   ───────────────────────────────────────────── */
+.section-center-head {
+    text-align: center;
+    margin: 2rem 0 1.8rem 0;
+}
+
+.section-label-sm {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--agri-forest-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.section-title-lg {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--agri-text-dark);
+    margin: 0 0 0.4rem 0;
+}
+
+.section-desc-sub {
+    font-size: 0.92rem;
+    color: var(--agri-text-muted);
+    margin: 0 auto;
+    max-width: 580px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 2.8rem;
+}
+
+.feature-card {
+    background: var(--agri-card-bg);
+    border: 1px solid var(--agri-border);
+    border-radius: 18px;
+    padding: 1.6rem 1.3rem;
+    box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px -3px rgba(23, 54, 40, 0.07);
+}
+
+.feature-icon-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #F1F6F3;
+    border: 1px solid #DCE7DF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--agri-forest-dark);
+    margin-bottom: 1.1rem;
+}
+
+.feature-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--agri-text-dark);
+    margin: 0 0 0.45rem 0;
+}
+
+.feature-card-desc {
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--agri-text-muted);
+    margin: 0;
+}
+
+/* ─────────────────────────────────────────────
+   STATISTICS EVERGREEN BANNER STRIP
+   ───────────────────────────────────────────── */
+.agri-stats-strip {
+    background: var(--agri-forest-dark);
+    border-radius: 18px;
+    padding: 1.8rem 2.2rem;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.8rem;
+    box-shadow: 0 10px 24px -5px rgba(23, 54, 40, 0.18);
+}
+
+.stat-item-col {
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.4rem 1rem;
+}
+
+.stat-item-col:last-child {
+    border-right: none;
+}
+
+.stat-strip-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-strip-label {
+    font-size: 0.8rem;
+    color: #BED4C6;
+    font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────
+   STREAMLIT CONTAINER CARD OVERRIDES
+   ───────────────────────────────────────────── */
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background-color: #FFFFFF !important;
+    border: 1px solid var(--agri-border) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03) !important;
+    padding: 1.6rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.studio-section-head {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--agri-text-dark);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #EEF2EE;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.step-badge {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #E8F2EB;
+    border: 1px solid #CFE3D5;
+    color: var(--agri-forest-dark);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Custom Input Mode Segmented Control Styling */
+div[data-testid="stSegmentedControl"] {
+    background: #F1F5F2 !important;
+    border: 1px solid #DFE7E1 !important;
+    border-radius: 30px !important;
+    padding: 4px !important;
+    gap: 4px !important;
+}
+
+div[data-testid="stSegmentedControl"] button {
+    border-radius: 25px !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    padding: 6px 16px !important;
+    color: var(--agri-text-muted) !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    transition: all 0.2s ease !important;
+}
+
+div[data-testid="stSegmentedControl"] button:focus,
+div[data-testid="stSegmentedControl"] button:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+div[data-testid="stSegmentedControl"] button[aria-checked="true"],
+div[data-testid="stSegmentedControl"] button[data-checked="true"],
+div[data-testid="stSegmentedControl"] [aria-selected="true"] {
+    background: var(--agri-forest-dark) !important;
+    color: #FFFFFF !important;
+    border-color: var(--agri-forest-dark) !important;
+    box-shadow: 0 2px 8px rgba(23, 54, 40, 0.2) !important;
+}
+
+/* Empty State Placeholders */
+.empty-placeholder-box {
+    background: #F8FAF8;
+    border: 1.5px dashed #D2DDD6;
+    border-radius: 14px;
+    padding: 2.2rem 1.5rem;
+    text-align: center;
+    color: #5F6D64;
+    margin-top: 1rem;
+}
+
+.empty-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #EDF4EE;
+    border: 1px solid #D5E5D8;
+    color: var(--agri-forest-dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+}
+
+.empty-title {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1A241F;
+}
+
+.empty-desc {
+    margin: 0.3rem 0 0 0;
+    font-size: 0.82rem;
+    color: var(--agri-text-muted);
+    line-height: 1.45;
+}
+
+/* KPI Box in Result */
+.kpi-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+    margin-bottom: 1.4rem;
+}
+
+.kpi-tile {
+    background: #F8FAF8;
+    border: 1px solid #E5EBE6;
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+}
+
+.kpi-tile-label {
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--agri-text-muted);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.kpi-tile-value {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--agri-text-dark);
+    line-height: 1.2;
+}
+
+.kpi-tile-sub {
+    font-size: 0.76rem;
+    color: var(--agri-text-muted);
+    margin-top: 0.25rem;
+}
+
+/* ─────────────────────────────────────────────
+   NON-LEAF WARNING CARD (Terracotta & Clean)
+   ───────────────────────────────────────────── */
+.nonleaf-warning-card {
+    background: #FFF9F7;
+    border: 1.5px solid #F3CEC4;
+    border-radius: 16px;
+    padding: 1.5rem 1.6rem;
+    color: #7A2818;
+    margin-bottom: 1.2rem;
+}
+
+.nonleaf-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #FEE8E2;
+    border: 1px solid #F5C6BA;
+    color: #9E2A12;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.65rem;
+}
+
+.nonleaf-warning-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #8C220E;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.nonleaf-warning-desc {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #5C2216;
+    margin: 0 0 0.9rem 0;
+}
+
+.nonleaf-reason-box {
+    background: #FFFFFF;
+    border: 1px solid #F0C4B8;
+    border-left: 4px solid #C0391B;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 0.86rem;
+    color: #4A1910;
+    margin-bottom: 0.9rem;
+    line-height: 1.45;
+}
+
+.nonleaf-guide-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #8C220E;
+    margin-bottom: 0.35rem;
+}
+
+.nonleaf-guide-list {
+    font-size: 0.82rem;
+    color: #5C2216;
+    margin: 0;
+    padding-left: 1.2rem;
+    line-height: 1.5;
+}
+
+/* File uploader tweak */
+[data-testid="stFileUploader"] {
+    border: 1.5px dashed #C8D7CD !important;
+    border-radius: 14px !important;
+    padding: 1.2rem 1.4rem !important;
+    background: #F8FAF8 !important;
+    transition: all 0.2s ease !important;
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: var(--agri-forest-dark) !important;
+    background: #F1F6F2 !important;
+}
+
+/* Button overrides */
+.stButton > button {
+    background-color: var(--agri-forest-dark) !important;
+    color: #FFFFFF !important;
+    border-radius: 25px !important;
+    padding: 0.6rem 1.6rem !important;
+    font-weight: 600 !important;
+    border: none !important;
+    box-shadow: 0 4px 12px rgba(23, 54, 40, 0.15) !important;
+    transition: all 0.2s ease !important;
+}
+
+.stButton > button:hover {
+    background-color: var(--agri-forest-hover) !important;
+    box-shadow: 0 6px 16px rgba(23, 54, 40, 0.22) !important;
+}
+
+/* Probability Progress Bar */
+.prob-item {
+    margin-bottom: 0.75rem;
+}
+
+.prob-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.86rem;
+    margin-bottom: 0.2rem;
+}
+
+.prob-name {
+    font-weight: 600;
+    color: var(--agri-text-dark);
+}
+
+.prob-pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--agri-forest-dark);
+}
+
+.prob-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: #EDF3EF;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.prob-bar-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #173628 0%, #2D5F45 100%);
+}
+
+/* Solution recommendation box */
+.agri-solution-box {
+    background: #FFFFFF;
+    border: 1px solid #E2E8E3;
+    border-left: 4px solid var(--agri-forest-dark);
+    border-radius: 10px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.agri-solution-head {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--agri-forest-dark);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+/* Section Header in Inner Pages */
+.inner-page-header {
+    margin-bottom: 2rem;
+}
+
+.inner-page-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--agri-text-dark);
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.inner-page-subtitle {
+    color: var(--agri-text-muted);
+    font-size: 1.02rem;
+    margin: 0;
+}
+
+/* Tabs Styling (Clean Editorial) */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 8px !important;
+    background-color: transparent !important;
+    padding: 0 0 1rem 0 !important;
+    border-bottom: 1px solid #E5EBE5 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.stTabs [data-baseweb="tab-highlight"],
+.stTabs [data-baseweb="tab-border"] {
+    background-color: transparent !important;
+    height: 0 !important;
+    display: none !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 20px !important;
+    padding: 8px 18px !important;
+    font-weight: 600 !important;
+    font-size: 0.88rem !important;
+    color: var(--agri-text-muted) !important;
+    background: #FFFFFF !important;
+    border: 1px solid #DDE4DC !important;
+    transition: all 0.2s ease !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: var(--agri-forest-dark) !important;
+    border-color: #BACABE !important;
+    background: #F4F7F4 !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background-color: var(--agri-forest-dark) !important;
+    color: #FFFFFF !important;
+    border-color: var(--agri-forest-dark) !important;
+    box-shadow: 0 3px 10px rgba(23, 54, 40, 0.15) !important;
+}
+
+/* Bottom Footer Banner (Matching Reference) */
+.agri-bottom-banner {
+    background: #F1F6F2;
+    border: 1px solid #DCE6DF;
+    border-radius: 20px;
+    padding: 1.4rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3.5rem;
+}
+
+.bottom-brand-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bottom-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    border: 1px solid #D2E0D6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--agri-forest-dark);
+}
+
+.bottom-tagline {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--agri-text-dark);
+}
+
+.bottom-pills {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.bottom-pill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--agri-forest-dark);
+}
+
+/* ===== Hero dengan background gambar ===== */
+.agri-hero {
+    padding: 3rem 3.5rem !important;
+}
+
+.agri-hero .hero-heading {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.agri-hero .hero-heading .highlight {
+    color: #86EFAC !important;   /* hijau terang agar kontras di atas gambar */
+}
+
+.agri-hero .hero-description {
+    color: #E8F1EA !important;
+}
+
+.agri-hero .btn-primary-pill {
+    background: #2F7D4F !important;   /* lebih terang supaya tombol terlihat di atas gambar */
+}
+
+@media (max-width: 768px) {
+    .agri-hero {
+        padding: 2rem 1.25rem !important;
+    }
+}
+
