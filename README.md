@@ -1,4 +1,4 @@
-# 🌿 LeafCare — Klasifikasi Kondisi Daun Cabai
+# 🌿 LeafCare : Klasifikasi Kondisi Daun Cabai
 
 LeafCare merupakan aplikasi berbasis web untuk membantu mengklasifikasikan kondisi daun cabai (*Capsicum annuum L.*) berdasarkan citra. Aplikasi ini menggunakan pendekatan *Deep Learning* dengan arsitektur **MobileNetV2** dan teknik *Transfer Learning*.
 
